@@ -28,6 +28,7 @@
   "dependencies": {
     "@contentful/rich-text-html-renderer": "^16.1.0",
     "@contentful/rich-text-types": "^16.2.0",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
     "@uniformdev/canvas": "19.108.0",
     "@uniformdev/canvas-next": "19.108.0",
     "@uniformdev/canvas-react": "19.108.0",

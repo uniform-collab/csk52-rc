@@ -1,5 +1,47 @@
-import { CANVAS_PUBLISHED_STATE, CANVAS_DRAFT_STATE, RouteClient } from '@uniformdev/canvas';
+import {
+  CANVAS_PUBLISHED_STATE,
+  CANVAS_DRAFT_STATE,
+  RouteClient,
+  CanvasClient,
+  CategoryClient,
+} from '@uniformdev/canvas';
 import { ProjectMapClient } from '@uniformdev/project-map';
+
+export const getCanvasClient = () => {
+  const apiKey = process.env.UNIFORM_API_KEY;
+  const projectId = process.env.UNIFORM_PROJECT_ID;
+
+  if (!apiKey) {
+    throw new Error('apiKey is not specified. RouteClient cannot be instantiated: ' + apiKey);
+  }
+
+  if (!projectId) throw new Error('projectId is not specified. RouteClient cannot be instantiated.');
+
+  const canvasClient = new CanvasClient({
+    apiKey: process.env.UNIFORM_API_KEY,
+    projectId: process.env.UNIFORM_PROJECT_ID,
+  });
+
+  return canvasClient;
+};
+
+export const getCategoryClient = () => {
+  const apiKey = process.env.UNIFORM_API_KEY;
+  const projectId = process.env.UNIFORM_PROJECT_ID;
+
+  if (!apiKey) {
+    throw new Error('apiKey is not specified. RouteClient cannot be instantiated: ' + apiKey);
+  }
+
+  if (!projectId) throw new Error('projectId is not specified. RouteClient cannot be instantiated.');
+
+  const categoryClient = new CategoryClient({
+    apiKey: process.env.UNIFORM_API_KEY,
+    projectId: process.env.UNIFORM_PROJECT_ID,
+  });
+
+  return categoryClient;
+};
 
 export const getRouteClient = () => {
   const apiKey = process.env.UNIFORM_API_KEY;
